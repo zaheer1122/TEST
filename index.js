@@ -62,37 +62,3 @@ client.commands = new Discord.Collection();
   });
 });
 
-
-// let interactions be a new collection ( slash commands  )
-client.interactions = new Discord.Collection();
-// creating an empty array for registering slash commands
-client.register_arr = []
-/* Load all slash commands */
-fs.readdir("./slash/", (_err, files) => {
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    let props = require(`./slash/${file}`);
-    let commandName = file.split(".")[0];
-    client.interactions.set(commandName, {
-      name: commandName,
-      ...props
-    });
-    client.register_arr.push(props)
-  });
-});
-
-client.on("messageCreate", (message) => {
-    if (message.author.bot) return false;
-
-    if (message.content.includes("@here") || message.content.includes("@everyone") || message.type == "REPLY") return false;
-
-    if (message.mentions.has(client.user.id)) {
-      const botmention = new Discord.MessageEmbed()
-      .setColor('#2F3136')
-      .setDescription('▶ **My Prefix:** `-` \n▶ **You can see my all commands type:** `-help`\n▶ **All the giveawy commands are availble on Slash**')
-        message.reply({embeds: [botmention]});
-    }
-});
-
-// Login through the client
-client.login(process.env.TOKEN);
