@@ -14,3 +14,10 @@ DCBL=https://cdn.discordapp.com/attachments/477946103287906304/48273867577661849
 </svg>
     </clipboard-copy>
   </div></div>
+IN THIS FORM
+{
+  "DCBL": "https://cdn.discordapp.com/attachments/477946103287906304/482738675776618497/DBL.png",
+  "THUMBNAIL": "https://i.imgur.com/sB02Hbz.png",
+  "FOOTERIMG": "https://i.imgur.com/sB02Hbz.png",
+  "TOKEN": "Your Token"
+}
